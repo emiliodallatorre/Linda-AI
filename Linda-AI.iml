@@ -8,5 +8,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="org.jsoup:jsoup:1.10.3" level="project" />
+    <orderEntry type="library" name="org.mobicents.external.freetts:cmu_time_awb:1.2.2" level="project" />
   </component>
 </module>

@@ -1,4 +1,5 @@
 package com.EmilioDallaTorre;
+import org.jsoup.HttpStatusException;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
@@ -46,6 +47,25 @@ public class Main {
                         System.out.println("La parola latina " + cercolatino + " secondo il dizionario online di Olivetti, significa '" + divs + "'.");
                     } else {
                         System.out.println("Mi dispiace, non ho trovato un significato alla parola che mi hai chiesto di cercare...");
+                    }
+                    main(args);
+                }
+                if (dico.substring(0, 23).equals("Cosa dice Wikipedia di ")) {
+                    Document significatowikipedia = null;
+                    String cercowikipedia = dico.substring(23);
+                    try {
+                        significatowikipedia = Jsoup.connect("https://it.wikipedia.org/wiki/" + cercowikipedia.replace(" ", "_")).userAgent("Mozilla").get();
+                } catch (HttpStatusException f) {
+                        f.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    String divs = significatowikipedia.select("p").text();
+                    if (!divs.equals("")) {
+                        System.out.println("La ricerca di " + cercowikipedia + " su wikipedia ha restituito il seguente risultato:");
+                        System.out.println(divs);
+                    } else {
+                        System.out.println("Mi dispiace, non ho trovato informazioni su " + cercowikipedia + " su Wikipedia...");
                     }
                     main(args);
                 }
