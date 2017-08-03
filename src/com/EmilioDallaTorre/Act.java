@@ -37,7 +37,7 @@ public class Act {
             significatoolivetti = Jsoup.connect("http://www.dizionario-latino.com/dizionario-latino-italiano.php?parola=" + cercolatino).userAgent("Mozilla").get();
             String divs = significatoolivetti.select(".italiano").text();
             if (!divs.equals("")) {
-                GUI.createWindow("La parola latina '" + cercolatino + "' secondo il dizionario online di Olivetti, significa '" + divs + "'.");
+                System.out.println("La parola latina '" + cercolatino + "' secondo il dizionario online di Olivetti, significa '" + divs + "'.");
             } else {
                 System.out.println("Mi dispiace, non ho trovato un significato alla parola che mi hai chiesto di cercare...");
             }

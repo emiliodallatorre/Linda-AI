@@ -1,18 +1,24 @@
 package com.EmilioDallaTorre;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class GUI {
-    private JPanel panel;
-    JTextArea LindaSAYS;
-    public static void createWindow(String risposta) {
+    private JPanel frame;
+    JTextArea responseArea;
+    JTextField inputArea;
+    JButton enterButton;
+    public JTextArea getTextArea() {
+        return responseArea;
+    }
+    void createWindow(String risposta) {
         JFrame frame = new JFrame("Linda");
-        JLabel textLabel = new JLabel(risposta,SwingConstants.CENTER); textLabel.setPreferredSize(new Dimension(300, 100));
-        frame.getContentPane().add(textLabel, BorderLayout.CENTER);
-        frame.setContentPane(new GUI().panel);
+        responseArea.append(risposta);
+        getTextArea().append(risposta);
+        System.out.println(risposta);
+        frame.getContentPane().add(responseArea);
+        frame.getContentPane().add(inputArea);
+        frame.getContentPane().add(enterButton);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLocationRelativeTo(null);
         frame.pack();
         frame.setVisible(true);
     }
