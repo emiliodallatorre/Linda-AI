@@ -10,7 +10,7 @@ public class GUI extends JFrame{
     private JTextArea responseArea;
     void createWindow(String risposta)  {
         JFrame frame = new JFrame("Linda-AI");
-        panel.setLayout(new FlowLayout());
+        panel.setLayout(new FlowLayout(450));
         responseArea.setText(risposta);
         responseArea.setEditable(false);
         inputArea.setText("Parla con l'intelligenza artificiale Linda!");
