@@ -21,7 +21,7 @@ public class Act {
         String precipitazioni = tempometeo.select(".wtr_currPerci").text();
         String vento = tempometeo.select(".wtr_currWind").text();
         String umidità = tempometeo.select(".wtr_currHumi").text();
-        new GUI().createWindow("Ecco le condizioni meteo di " + cercometeo + ":");
+        new GUI().createWindow("Ecco le condizioni meteo di " + cercometeo + ":" + "/n");
         new GUI().createWindow(media + "° la temperatura media registrata in questi giorni;");
         new GUI().createWindow(minima + " la temperatura minima registrata in questi giorni;");
         new GUI().createWindow(massima + " la temperatura massima registrata in questi giorni;");
