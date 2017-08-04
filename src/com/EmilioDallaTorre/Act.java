@@ -21,13 +21,13 @@ public class Act {
         String precipitazioni = tempometeo.select(".wtr_currPerci").text();
         String vento = tempometeo.select(".wtr_currWind").text();
         String umidità = tempometeo.select(".wtr_currHumi").text();
-        System.out.println("Ecco le condizioni meteo di " + cercometeo + ":");
-        System.out.println(media + "° la temperatura media registrata in questi giorni;");
-        System.out.println(minima + " la temperatura minima registrata in questi giorni;");
-        System.out.println(massima + " la temperatura massima registrata in questi giorni;");
-        System.out.println(precipitazioni + ";");
-        System.out.println(vento + ";");
-        System.out.println(umidità + ".");
+        new GUI().createWindow("Ecco le condizioni meteo di " + cercometeo + ":");
+        new GUI().createWindow(media + "° la temperatura media registrata in questi giorni;");
+        new GUI().createWindow(minima + " la temperatura minima registrata in questi giorni;");
+        new GUI().createWindow(massima + " la temperatura massima registrata in questi giorni;");
+        new GUI().createWindow(precipitazioni + ";");
+        new GUI().createWindow(vento + ";");
+        new GUI().createWindow(umidità + ".");
     }
 
     public static void Latino(String dico) {
@@ -37,14 +37,14 @@ public class Act {
             significatoolivetti = Jsoup.connect("http://www.dizionario-latino.com/dizionario-latino-italiano.php?parola=" + cercolatino).userAgent("Mozilla").get();
             String divs = significatoolivetti.select(".italiano").text();
             if (!divs.equals("")) {
-                System.out.println("La parola latina '" + cercolatino + "' secondo il dizionario online di Olivetti, significa '" + divs + "'.");
+                new GUI().createWindow("La parola latina '" + cercolatino + "' secondo il dizionario online di Olivetti, significa '" + divs + "'.");
             } else {
-                System.out.println("Mi dispiace, non ho trovato un significato alla parola che mi hai chiesto di cercare...");
+                new GUI().createWindow("Mi dispiace, non ho trovato un significato alla parola che mi hai chiesto di cercare...");
             }
         } catch (IOException e) {
             e.printStackTrace();
         } catch (StringIndexOutOfBoundsException f) {
-            System.out.println("Ricorda che, perché io cerchi il significato di una parola, occorre che tu la definisca fra due virgolette!");
+            new GUI().createWindow("Ricorda che, perché io cerchi il significato di una parola, occorre che tu la definisca fra due virgolette!");
         }
     }
 
@@ -55,14 +55,14 @@ public class Act {
             significatoolivetti = Jsoup.connect("http://www.dizionario-italiano.it/dizionario-italiano.php?parola=" + cercoitaliano).userAgent("Mozilla").get();
             String divs = significatoolivetti.select(".italiano").text();
             if (!divs.equals("")) {
-                System.out.println("La parola italiana '" + cercoitaliano + "' secondo il dizionario online di Olivetti, significa '" + divs + "'.");
+                new GUI().createWindow("La parola italiana '" + cercoitaliano + "' secondo il dizionario online di Olivetti, significa '" + divs + "'.");
             } else {
-                System.out.println("Mi dispiace, non ho trovato un significato alla parola che mi hai chiesto di cercare...");
+                new GUI().createWindow("Mi dispiace, non ho trovato un significato alla parola che mi hai chiesto di cercare...");
             }
         } catch (IOException e) {
             e.printStackTrace();
         } catch (StringIndexOutOfBoundsException f) {
-            System.out.println("Ricorda che, perché io cerchi il significato di una parola, occorre che tu la definisca fra due virgolette!");
+            new GUI().createWindow("Ricorda che, perché io cerchi il significato di una parola, occorre che tu la definisca fra due virgolette!");
         }
     }
 
@@ -73,17 +73,17 @@ public class Act {
             significatowikipedia = Jsoup.connect("https://it.wikipedia.org/wiki/" + cercowikipedia.replace(" ", "_")).userAgent("Mozilla").get();
             String divs = significatowikipedia.select("p").text();
             if (!divs.equals("")) {
-                System.out.println("La ricerca di " + cercowikipedia + " su wikipedia ha restituito il seguente risultato:");
-                System.out.println(divs);
+                new GUI().createWindow("La ricerca di " + cercowikipedia + " su wikipedia ha restituito il seguente risultato:");
+                new GUI().createWindow(divs);
             } else {
-                System.out.println("Mi dispiace, non ho trovato informazioni su " + cercowikipedia + " su Wikipedia...");
+                new GUI().createWindow("Mi dispiace, non ho trovato informazioni su " + cercowikipedia + " su Wikipedia...");
             }
         } catch (HttpStatusException e) {
-            System.out.println("Mi dispiace, Wikipedia sembra non avere una voce per '" + cercowikipedia +"'...");
+            new GUI().createWindow("Mi dispiace, Wikipedia sembra non avere una voce per '" + cercowikipedia +"'...");
         } catch (java.io.IOException f) {
             f.printStackTrace();
         } catch (StringIndexOutOfBoundsException g) {
-            System.out.println("Ricorda che, perché io cerchi informazioni riguardo a qualcosa, occorre che tu la definisca fra due virgolette!");
+            new GUI().createWindow("Ricorda che, perché io cerchi informazioni riguardo a qualcosa, occorre che tu la definisca fra due virgolette!");
         }
     }
 }

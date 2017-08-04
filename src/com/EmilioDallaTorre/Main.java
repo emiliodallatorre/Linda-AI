@@ -7,7 +7,7 @@ public class Main {
         Scanner input = new Scanner(System.in);
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                new GUI().createWindow("La luce!");
+                new GUI().createWindow("Linda è al tuo servizio!");
             }
         });
         for (; ; ) {
