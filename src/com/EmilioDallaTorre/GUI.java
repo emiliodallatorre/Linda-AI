@@ -5,26 +5,30 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 
 public class GUI extends JFrame {
-    private JPanel panel;
     private JTextField inputArea;
-    JTextArea responseArea;
-    JFrame frame = new JFrame("Linda-AI");
-
-    void createWindow(String risposta) {
-        panel.setLayout(new GridLayout(2, 2));
+    private JTextArea responseArea;
+    private JFrame frame = new JFrame("Linda-AI");
+    private GridLayout layout = new GridLayout(2,2);
+    private JPanel panel = new JPanel(layout);
+    void createWindow() {
         inputArea.setText("Parla con l'intelligenza artificiale Linda!");
         panel.add(responseArea);
         panel.add(inputArea);
-        responseArea.append(risposta);
-        responseArea.setEditable(false);
-        responseArea.setLineWrap(true);
         frame.add(panel);
         frame.setSize(450, 450);
-        frame.setLocationRelativeTo(null);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setVisible(true);
-        inputArea.addActionListener((ActionEvent e) -> {
-            new Classify().classify(inputArea.getText());
+        inputArea.addActionListener((ActionEvent e) -> Classify.classify(inputArea.getText()));
+    }
+    void giveResponse(String risposta) {
+        responseArea.setEditable(false);
+        responseArea.setLineWrap(true);
+        responseArea.append(risposta + '\n');
+        SwingUtilities.invokeLater(new Runnable(){
+            @Override
+            public void run() {
+                responseArea.append(risposta); //DOES NOT CHANGE IN GUI
+            }
         });
     }
 }
