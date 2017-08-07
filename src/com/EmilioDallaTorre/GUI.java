@@ -13,23 +13,19 @@ public class GUI extends JFrame {
 
     void createWindow() {
         inputArea.setText("Parla con l'intelligenza artificiale Linda!");
+        responseArea.setEditable(false);
+        responseArea.setLineWrap(true);
         panel.add(responseArea);
         panel.add(inputArea);
         frame.add(panel);
         frame.setSize(450, 450);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.setVisible(true);
-        inputArea.addActionListener((ActionEvent e) -> Classify.classify(inputArea.getText()));
+        inputArea.addActionListener(actionPerformed("Sto pensando..."));
     }
 
-    void giveResponse(final String risposta) {
-        new Thread(SwingUtilities.invokeLater(() -> {
-            responseArea.setEditable(false);
-            responseArea.setLineWrap(true);
-            responseArea.append(risposta + '\n');
-            panel.add(responseArea);
-            revalidate();
-            repaint();
-        })).start();
+    public void actionPerformed(String risposta) {
+        Classify.classify(inputArea.getText());
+        responseArea.append(risposta + '\n');
     }
 }
