@@ -2,6 +2,7 @@ package com.EmilioDallaTorre;
 
 public class Classify {
     public static void classify(String dico) {
+        System.out.println("Sto pensando...");
         Boolean Wikipedia = dico.contains("Wikipedia");
         Boolean Meteo = dico.contains("tempo") || dico.contains("meteo");
         Boolean Latino = dico.contains("significa") && dico.contains("latino") || dico.contains("latino");
@@ -14,6 +15,8 @@ public class Classify {
             Act.Latino(dico);
         } else if(Timer) {
             Act.Italiano(dico);
+        } else {
+            new GUI().giveResponse("...non capisco quel che dici!");
         }
     }
 }
