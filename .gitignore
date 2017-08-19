@@ -25,3 +25,11 @@
 hs_err_pid*
 
 # End of https://www.gitignore.io/api/java
+!/lib/jsoup-1.10.3.jar
+!/lib/en_us.jar
+!/lib/freetts.jar
+!/lib/cmulex.jar
+!/lib/cmu_time_awb.jar
+!/lib/cmutimelex.jar
+!/lib/freetts-jsapi10.jar
+!/lib/cmu_us_kal.jar

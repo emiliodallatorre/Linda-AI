@@ -1,9 +1,9 @@
 package com.EmilioDallaTorre;
 
-import javax.swing.*;
-import java.util.concurrent.Executors;
 import com.sun.speech.freetts.*;
 
+import javax.swing.*;
+import java.util.concurrent.Executors;
 
 public class GUI extends JFrame {
     void giveResponse(String risposta) {
