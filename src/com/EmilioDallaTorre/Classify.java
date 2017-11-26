@@ -4,7 +4,7 @@ public class Classify {
     public static void classify(String dico) {
         System.out.println("Sto pensando...");
         Boolean Wikipedia = dico.contains("Wikipedia");
-        Boolean Meteo = dico.contains("tempo") || dico.contains("meteo");
+        Boolean Meteo = dico.contains("tempo") || dico.contains("meteo") || dico.contains("Tempo") || dico.contains("Meteo");
         Boolean Latino = dico.contains("significa") && dico.contains("latino") || dico.contains("latino");
         Boolean Timer = dico.contains("significa") || dico.contains("italiano") || dico.contains("vuol dire");
         if(Wikipedia) {
